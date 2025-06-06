@@ -81,6 +81,50 @@ body {
     width: 100%;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    transition: var(--transition);
+}
+
+/* Add active state for mobile menu */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -452,21 +496,30 @@ body {
     }
 
     .hamburger {
-        display: block;
-        cursor: pointer;
+        display: flex;
     }
 
     .nav-links {
         display: none;
+        padding: 80px 2rem;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
     }
 
     .hero {
+        flex-direction: column;
         text-align: center;
         padding-top: 80px;
     }
 
     .hero h1 {
         font-size: 2.5rem;
+    }
+
+    .hero-content {
+        margin-top: 4rem;
     }
 
     .contact-content {
@@ -476,6 +529,15 @@ body {
     .about-content {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
 
